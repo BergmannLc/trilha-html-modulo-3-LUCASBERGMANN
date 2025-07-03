@@ -2,15 +2,32 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6; /* Melhoria: Espaçamento entre linhas para melhor legibilidade */
+    color: #333; /* Melhoria: Cor de texto mais suave */
 }
-ul { list-style: none; padding-left: 5px; }
-a { color:blue; text-decoration: none;}
+
+ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+a {
+    color: #007bff; /* Azul vibrante para links */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Transição suave para o hover */
+}
+
+a:hover {
+    color: #0056b3; /* Cor mais escura ao passar o mouse */
+}
+
 .bar {
     background-color: #f9f9fb;
-    padding:15px;
+    padding: 15px;
     border-top: solid 1px #cdcdcd;
     border-bottom: solid 1px #cdcdcd;
 }
+
 .content {
     max-width: 1440px;
     margin: auto;
@@ -18,21 +35,176 @@ a { color:blue; text-decoration: none;}
     display: grid;
     gap: 3rem;
     grid-template-areas: "sidebar main anchors";
-    grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
+    grid-template-columns: minmax(0, 15rem) minmax(0, 2.5fr) minmax(0, 15rem);
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
 .footer {
     min-height: 100px;
     border-top: solid 1px #cdcdcd;
+    background-color: #f9f9fb; /* Adicionado: Cor de fundo para o rodapé */
+    padding: 20px; /* Adicionado: Espaçamento interno */
+    text-align: center; /* Adicionado: Centraliza texto se houver */
 }
+
 .anchors {
     border-left: solid 1px #cdcdcd;
-    padding-left: 15px;
+    padding: 20px; /* Melhoria: Aumenta o padding para consistência */
+    position: sticky; /* Melhoria: Faz a barra de âncoras "grudar" ao rolar */
+    top: 20px; /* Distância do topo ao "grudar" */
+    align-self: start; /* Garante que o sticky funcione bem no grid */
+    height: fit-content; /* Ajusta a altura ao conteúdo */
 }
+
+.anchors ul {
+    padding-left: 0; /* Remove padding padrão para alinhamento */
+}
+
+.anchors ul li a {
+    display: block; /* Faz o link ocupar toda a largura */
+    padding: 5px 0; /* Espaçamento para cada item da lista */
+    font-size: 0.95em; /* Tamanho da fonte ligeiramente menor */
+}
+
 .sidebar {
     border-right: solid 1px #cdcdcd;
+    padding: 20px; /* Melhoria: Aumenta o padding para melhor visual */
+    background-color: #f8f8f8; /* Melhoria: Cor de fundo sutil para a sidebar */
+    position: sticky; /* Melhoria: Faz a sidebar "grudar" ao rolar */
+    top: 20px; /* Distância do topo ao "grudar" */
+    align-self: start; /* Garante que o sticky funcione bem no grid */
+    height: fit-content; /* Ajusta a altura ao conteúdo */
 }
+
+.sidebar h2 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 15px; /* Melhoria: Mais espaço abaixo do título */
+    border-bottom: 1px solid #eee; /* Adicionado: Linha divisória sutil */
+    padding-bottom: 8px; /* Adicionado: Espaçamento abaixo da linha */
+}
+
+.sidebar ul {
+    padding-left: 0; /* Remove padding padrão para alinhamento */
+}
+
+.sidebar ul li {
+    margin-bottom: 5px; /* Espaço entre os itens da lista */
+}
+
+.sidebar ul li a {
+    display: block; /* Faz o link ocupar toda a largura */
+    padding: 8px 10px; /* Área clicável maior */
+    border-radius: 4px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição para hover */
+}
+
+.sidebar ul li a:hover {
+    background-color: #e0e0e0; /* Fundo suave ao passar o mouse */
+    color: #0056b3; /* Cor do texto ao passar o mouse */
+}
+
+
+.main {
+    padding: 0 20px; /* Melhoria: Adiciona padding horizontal ao conteúdo principal */
+}
+
+.main p {
+    margin-bottom: 1em; /* Adicionado: Espaço entre parágrafos */
+    line-height: 1.7; /* Melhoria: Mais espaço entre linhas em parágrafos */
+}
+
+.main h2, .main h3, .main h4 {
+    margin-top: 2.5em; /* Espaço maior acima dos títulos */
+    margin-bottom: 0.8em; /* Espaço menor abaixo dos títulos */
+    color: #222; /* Cor de título ligeiramente mais escura */
+}
+
+.main h2 {
+    font-size: 2em;
+    border-bottom: 2px solid #eee; /* Adicionado: Linha abaixo dos títulos H2 */
+    padding-bottom: 10px;
+}
+
+.main h3 {
+    font-size: 1.6em;
+    color: #444;
+}
+
+.main h4 {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 1.5em;
+}
+
+/* === Estilos para imagens com figure (todas, PNG ou JPEG) === */
+
 figure {
     text-align: center;
+    margin: 2.5rem 0; /* Aumenta o espaço vertical */
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+}
+
+figcaption {
+    font-size: 14px;
+    color: #666; /* Cor ligeiramente mais escura */
+    margin-top: 0.7rem; /* Mais espaço acima da legenda */
+    font-style: italic;
+}
+
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+    .content {
+        /* Muda o layout para uma única coluna */
+        grid-template-areas:
+            "sidebar"
+            "main"
+            "anchors";
+        grid-template-columns: 1fr; /* Cada área ocupa a largura total */
+        gap: 2rem; /* Reduz o espaçamento entre as seções */
+        padding-left: 15px; /* Ajusta o padding para telas menores */
+        padding-right: 15px;
+    }
+
+    .sidebar {
+        border-right: none; /* Remove a borda direita em telas pequenas */
+        border-bottom: solid 1px #cdcdcd; /* Adiciona uma borda inferior */
+        padding-bottom: 20px; /* Adiciona padding abaixo */
+        position: static; /* Desativa o sticky para sidebar em mobile */
+        height: auto; /* Altura automática */
+    }
+
+    .anchors {
+        border-left: none; /* Remove a borda esquerda em telas pequenas */
+        border-top: solid 1px #cdcdcd; /* Adiciona uma borda superior */
+        padding-top: 20px; /* Adiciona padding acima */
+        position: static; /* Desativa o sticky para anchors em mobile */
+        height: auto; /* Altura automática */
+    }
+
+    .main {
+        padding: 0 0; /* Remove o padding horizontal no main para ocupar mais espaço */
+    }
+
+    .main h2 {
+        font-size: 1.8em; /* Ajusta o tamanho da fonte para mobile */
+    }
+
+    .main h3 {
+        font-size: 1.4em;
+    }
+
+    .main h4 {
+        font-size: 1.1em;
+    }
 }
